@@ -1,3 +1,58 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer components {
+  .card {
+    @apply bg-card-bg rounded-card shadow-card;
+    transition: transform 0.3s ease;
+  }
+
+  .card:hover {
+    @apply transform translate-y-[-5px];
+  }
+
+  .image-container {
+    @apply relative;
+  }
+
+  .image-container img {
+    @apply w-full h-[180px] object-cover;
+  }
+
+  .image-container-no-overlay img {
+    @apply w-full h-[180px] max-h-[180px] object-cover;
+  }
+
+  .slogan-overlay {
+    @apply absolute top-0 left-0 right-0 p-2 bg-primary text-white text-center font-bold text-lg;
+    background-color: rgba(255, 111, 97, 0.9); /* Thay thế bg-primary/90 */
+    border-bottom-left-radius: 12px;
+    border-bottom-right-radius: 12px;
+  }
+}
+
+:root {
+  --primary-color: #ff6f61;
+  --bg-color: #fff8f0;
+  --text-color: #333;
+  --card-bg: #fff;
+  --shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  --radius: 12px;
+}
+
+body {
+  @apply bg-bg-color text-text-color;
+}
+
+header {
+  @apply bg-primary text-white shadow-lg;
+}
+
+button {
+  @apply bg-primary text-white py-2 px-4 rounded-lg hover:bg-[#e2584b];
+}
+
+input {
+  @apply p-2 rounded-lg border-none text-black focus:outline-none;
+}
