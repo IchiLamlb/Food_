@@ -12,22 +12,27 @@ function Header({ user, handleLogout }) {
         </Link>
 
         {/* Navigation */}
-        <nav className="flex flex-wrap justify-center gap-2">
-          {[
-            { id: 'suggest', label: 'Đề xuất' },
-            { id: 'restaurants', label: 'Quán ăn' },
-            { id: 'dishes', label: 'Món ăn' },
-            { id: 'reviews', label: 'Đánh giá' }
-          ].map(({ id, label }) => (
-            <button
-              key={id}
-              onClick={() => document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' })}
-              className="px-4 py-1.5 bg-white/20 rounded-full hover:bg-white/30 text-sm font-semibold transition"
-            >
-              {label}
-            </button>
-          ))}
+        <nav className="flex flex-wrap justify-center gap-3">
+          <Link
+            to="/"
+            className="px-6 py-3 bg-white/20 rounded-full hover:bg-white/30 text-base font-semibold transition"
+          >
+            Đề xuất
+          </Link>
+          <Link
+            to="/explore_res"
+            className="px-6 py-3 bg-white/20 rounded-full hover:bg-white/30 text-base font-semibold transition"
+          >
+            Quán ăn
+          </Link>
+          <Link
+            to="/explore-dishesL"
+            className="px-6 py-3 bg-white/20 rounded-full hover:bg-white/30 text-base font-semibold transition"
+          >
+            Món ăn
+          </Link>
         </nav>
+
 
         {/* User login/logout */}
         <div className="flex items-center gap-2">
