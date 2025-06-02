@@ -6,7 +6,7 @@ export const restaurants = [
     image: '/image/r1.png',
     price: 50,
     waitTime: 10,
-    address: '12 Lê Thanh NǬhị, Hai Bà Trưng, Hà Nội',
+    address: '12 Lê Thanh Nghị, Hai Bà Trưng, Hà Nội',
     openTime: '09:00',
     closeTime: '21:00',
     comments: [
@@ -20,7 +20,7 @@ export const restaurants = [
     image: '/image/r2.png',
     price: 45,
     waitTime: 8,
-    address: '48 Tạ Quang Bợu, Hai Bà Trưng, Hà Nội',
+    address: '48 Tạ Quang Bửu, Hai Bà Trưng, Hà Nội',
     openTime: '06:00',
     closeTime: '20:00',
     comments: [
@@ -48,7 +48,7 @@ export const restaurants = [
     image: '/image/d4.jpg',
     price: 35,
     waitTime: 5,
-    address: '17 Tạ Quang Bợu, Hai Bà Trưng, Hà Nội',
+    address: '17 Tạ Quang Bửu, Hai Bà Trưng, Hà Nội',
     openTime: '07:30',
     closeTime: '22:00',
     comments: [
@@ -62,7 +62,7 @@ export const restaurants = [
     image: '/image/d5.jpg',
     price: 50,
     waitTime: 9,
-    address: '10 Lê Thanh NǬhị, Hai Bà Trưng, Hà Nội',
+    address: '10 Lê Thanh Nghị, Hai Bà Trưng, Hà Nội',
     openTime: '06:30',
     closeTime: '21:00',
     comments: [
@@ -76,7 +76,7 @@ export const restaurants = [
     image: '/image/d6.jpg',
     price: 38,
     waitTime: 6,
-    address: '6 Tạ Quang Bợu, Hai Bà Trưng, Hà Nội',
+    address: '6 Tạ Quang Bửu, Hai Bà Trưng, Hà Nội',
     openTime: '07:00',
     closeTime: '21:30',
     comments: [
@@ -104,7 +104,7 @@ export const restaurants = [
     image: '/image/d8.png',
     price: 48,
     waitTime: 9,
-    address: '22 Lê Thanh NǬhị, Hai Bà Trưng, Hà Nội',
+    address: '22 Lê Thanh Nghị, Hai Bà Trưng, Hà Nội',
     openTime: '08:00',
     closeTime: '21:00',
     comments: [
@@ -132,7 +132,7 @@ export const restaurants = [
     image: '/image/d10.png',
     price: 42,
     waitTime: 8,
-    address: '5 Lê Thanh NǬhị, Hai Bà Trưng, Hà Nội',
+    address: '5 Lê Thanh Nghị, Hai Bà Trưng, Hà Nội',
     openTime: '09:00',
     closeTime: '21:00',
     comments: [
@@ -146,7 +146,7 @@ export const restaurants = [
     image: '/image/d11.png',
     price: 40,
     waitTime: 10,
-    address: '16 Tạ Quang Bợu, Hai Bà Trưng, Hà Nội',
+    address: '16 Tạ Quang Bửu, Hai Bà Trưng, Hà Nội',
     openTime: '08:00',
     closeTime: '20:30',
     comments: [
@@ -174,7 +174,7 @@ export const restaurants = [
     image: '/image/d13.png',
     price: 65,
     waitTime: 15,
-    address: '26 Lê Thanh NǬhị, Hai Bà Trưng, Hà Nội',
+    address: '26 Lê Thanh Nghị, Hai Bà Trưng, Hà Nội',
     openTime: '11:00',
     closeTime: '22:00',
     comments: [
@@ -188,7 +188,7 @@ export const restaurants = [
     image: '/image/d14.png',
     price: 40,
     waitTime: 10,
-    address: '8 Tạ Quang Bợu, Hai Bà Trưng, Hà Nội',
+    address: '8 Tạ Quang Bửu, Hai Bà Trưng, Hà Nội',
     openTime: '09:00',
     closeTime: '20:30',
     comments: [
