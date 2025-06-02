@@ -108,9 +108,10 @@ function App() {
 
           {/* Trang chi tiết món */}
           <Route
-            path="/dish/:id"
-            element={<DishDetail dishes={dishes} user={user} onAddReview={handleAddReview} />}
-          />
+  path="/dish/:id"
+  element={<DishDetail dishes={dishes} restaurants={restaurants} user={user} onAddReview={handleAddReview} />}
+/>
+
 
           {/* Trang chi tiết nhà hàng */}
           <Route

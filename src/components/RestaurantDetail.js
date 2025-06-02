@@ -23,61 +23,94 @@ function RestaurantDetail({ restaurants, user, onAddReview }) {
   };
 
   if (!restaurant) {
-    return <div className="max-w-5xl mx-auto p-5">Quán ăn không tồn tại</div>;
+    return <div className="max-w-5xl mx-auto p-5 text-center text-gray-600 text-lg">Quán ăn không tồn tại</div>;
   }
 
   return (
-    <main className="max-w-5xl mx-auto p-4">
-      <p
+    <main className="max-w-5xl mx-auto p-5 w-full">
+      {/* Nút quay lại */}
+      <span
         onClick={() => navigate(-1)}
-        className="text-primary hover:underline mb-5 inline-block"
+        role="button"
+        tabIndex={0}
+        onKeyPress={(e) => { if (e.key === 'Enter') navigate(-1); }}
+        className="inline-flex items-center text-[#e2584b] hover:text-[#c14f40] cursor-pointer mb-5 font-semibold transition-colors select-none"
       >
-        ← Quay lại
-      </p>
+        <svg
+          className="w-5 h-5 mr-2"
+          fill="none"
+          stroke="currentColor"
+          strokeWidth="2"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          viewBox="0 0 24 24"
+        >
+          <path d="M15 18l-6-6 6-6" />
+        </svg>
+        Quay lại
+      </span>
 
-      <div className="bg-white shadow-lg rounded-2xl overflow-hidden mb-10">
+      {/* Ảnh nhà hàng */}
+      <div className="w-full rounded-2xl overflow-hidden shadow-lg mb-8">
         <img
           src={restaurant.image}
           alt={restaurant.name}
-          className="w-full h-[250px] object-cover"
+          className="w-full h-auto max-h-[400px] object-cover"
+          style={{ display: 'block', margin: '0 auto' }}
         />
-        <div className="p-6">
-          <h2 className="text-3xl font-bold text-primary mb-2">{restaurant.name}</h2>
-          <p className="text-gray-700 mb-4">{restaurant.description}</p>
+      </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 text-sm text-gray-600">
-            <p>💰 <span className="font-semibold">Giá trung bình:</span> {restaurant.price}K</p>
-            <p>⏱️ <span className="font-semibold">Thời gian chờ:</span> {restaurant.waitTime} phút</p>
-            <p>📍 <span className="font-semibold">Địa chỉ:</span> {restaurant.address}</p>
+      {/* Thông tin chi tiết */}
+      <div className="bg-white p-6 rounded-2xl shadow-lg mb-10">
+        <h1 className="text-4xl font-bold text-primary mb-3">{restaurant.name}</h1>
+        <p className="text-gray-700 mb-5 leading-relaxed">{restaurant.description}</p>
+
+        <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 text-gray-600 text-sm font-medium">
+          <div className="flex items-center space-x-2">
+            <span>💰</span>
+            <span>Giá trung bình: <strong>{restaurant.price}K</strong></span>
+          </div>
+          <div className="flex items-center space-x-2">
+            <span>⏱️</span>
+            <span>Thời gian chờ: <strong>{restaurant.waitTime} phút</strong></span>
+          </div>
+          <div className="flex items-center space-x-2">
+            <span>📍</span>
+            <span>Địa chỉ: <strong>{restaurant.address}</strong></span>
           </div>
         </div>
       </div>
 
-      <section className="mt-8">
-        <h3 className="text-2xl font-semibold text-primary mb-4">💬 Bình luận & đánh giá</h3>
+      {/* Bình luận */}
+      <section>
+        <h2 className="text-3xl font-semibold text-primary mb-6">💬 Bình luận & đánh giá</h2>
 
         {user ? (
           <CommentForm addComment={addComment} />
         ) : (
-          <p className="text-red-500 mb-4">
+          <p className="text-red-500 mb-6">
             Vui lòng <Link to="/login" className="text-primary underline">đăng nhập</Link> để bình luận.
           </p>
         )}
 
-        <div className="space-y-4">
-          {comments.length === 0 && (
+        <div className="space-y-6">
+          {comments.length === 0 ? (
             <p className="text-gray-500 italic">Chưa có bình luận nào.</p>
-          )}
-          {comments.map(comment => (
-            <div key={comment.id} className="bg-gray-50 border rounded-lg p-4 shadow-sm">
-              <div className="flex justify-between items-center mb-2">
-                <span className="font-semibold text-gray-800">{comment.user}</span>
-                <span className="text-yellow-500">{comment.rating} ⭐</span>
+          ) : (
+            comments.map(comment => (
+              <div
+                key={comment.id}
+                className="bg-gray-50 border border-gray-200 rounded-xl p-5 shadow-sm transition hover:shadow-md"
+              >
+                <div className="flex justify-between items-center mb-3">
+                  <span className="font-semibold text-gray-800">{comment.user}</span>
+                  <span className="text-yellow-500 text-lg">{comment.rating} ⭐</span>
+                </div>
+                <p className="text-gray-700 mb-2">{comment.text}</p>
+                <p className="text-xs text-gray-400">{comment.timestamp}</p>
               </div>
-              <p className="text-gray-700 mb-1">{comment.text}</p>
-              <p className="text-sm text-gray-400">{comment.timestamp}</p>
-            </div>
-          ))}
+            ))
+          )}
         </div>
       </section>
     </main>

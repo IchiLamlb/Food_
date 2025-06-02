@@ -9,7 +9,7 @@ function DishList({ dishes, searchQuery }) {
   const filteredDishes = selectedDishes.filter(dish =>
     dish.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
     dish.restaurant.toLowerCase().includes(searchQuery.toLowerCase())
- );
+  );
 
   return (
     <section id="dishes" className="my-10">
@@ -19,7 +19,7 @@ function DishList({ dishes, searchQuery }) {
       <div className="flex justify-center mb-5">
         <Link
           to="/explore-dishes"
-          className="bg-orange-600 hover:bg-orange-700 text-white font-medium py-2 px-4 rounded-lg shadow transition duration-200"
+          className="bg-red-500 hover:bg-red-700 text-white font-medium py-2 px-4 rounded-lg shadow transition duration-200"
         >
           Khám phá
         </Link>
