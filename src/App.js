@@ -4,6 +4,7 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import './index.css';
 
 import Header from './components/Header';
+import Footer from './components/Footer';
 import Hero from './components/Hero';
 import Suggestions from './components/Suggestions';
 import RestaurantList from './components/RestaurantList';
@@ -99,18 +100,16 @@ function App() {
                 <section id="dishes">
                   <DishList dishes={dishes} searchQuery={searchQuery} />
                 </section>
-                <section id="reviews">
-                  <Reviews reviews={allReviews.slice(0, 10)} />
-                </section>
+
               </main>
             }
           />
 
           {/* Trang chi tiết món */}
           <Route
-  path="/dish/:id"
-  element={<DishDetail dishes={dishes} restaurants={restaurants} user={user} onAddReview={handleAddReview} />}
-/>
+            path="/dish/:id"
+            element={<DishDetail dishes={dishes} restaurants={restaurants} user={user} onAddReview={handleAddReview} />}
+          />
 
 
           {/* Trang chi tiết nhà hàng */}
@@ -134,9 +133,8 @@ function App() {
           <Route path="/register" element={<Register handleLogin={handleLogin} />} />
         </Routes>
 
-        <footer className="text-center p-4 bg-gray-200 text-sm">
-          <p>© 2025 FoodNearU. Made for students ❤️</p>
-        </footer>
+        <Footer />
+
       </div>
     </Router>
   );

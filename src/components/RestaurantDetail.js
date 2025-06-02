@@ -65,7 +65,7 @@ function RestaurantDetail({ restaurants, user, onAddReview }) {
         <h1 className="text-4xl font-bold text-primary mb-3">{restaurant.name}</h1>
         <p className="text-gray-700 mb-5 leading-relaxed">{restaurant.description}</p>
 
-        <div className="grid grid-cols-1 sm:grid-cols-4 gap-6 text-gray-600 text-sm font-medium">
+        <div className="grid grid-cols-1 sm:grid-cols-4 gap-6 text-gray-600 text-sm font-medium mb-6">
           <div className="flex items-center space-x-2">
             <span>💰</span>
             <span>Giá trung bình: <strong>{restaurant.price}K</strong></span>
@@ -80,7 +80,23 @@ function RestaurantDetail({ restaurants, user, onAddReview }) {
           </div>
           <div className="flex items-center space-x-2">
             <span>🕒</span>
-            <span>Giờ mở cửa: <strong>{restaurant.openTime}</strong> - Đóng cửa: <strong>{restaurant.closeTime}</strong></span>
+            <span>Giờ mở cửa: <strong>{restaurant.openTime}</strong> - <strong>{restaurant.closeTime}</strong></span>
+          </div>
+        </div>
+
+        {/* Bản đồ Google Maps */}
+        <div className="mt-8">
+          <h3 className="text-xl font-semibold text-gray-700 mb-3">🗺️ Vị trí trên bản đồ</h3>
+          <div className="rounded-xl overflow-hidden shadow-lg border border-gray-200">
+            <iframe
+              title="Google Map"
+              width="100%"
+              height="350"
+              frameBorder="0"
+              style={{ border: 0 }}
+              src={`https://www.google.com/maps?q=${encodeURIComponent(restaurant.address)}&output=embed`}
+              allowFullScreen
+            ></iframe>
           </div>
         </div>
       </div>

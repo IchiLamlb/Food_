@@ -157,7 +157,7 @@ export const restaurants = [
     id: 12,
     name: 'Nem Nướng Nha Trang Hồng Phúc',
     description: 'Nem nướng giòn, thơm, kèm rau sống tươi',
-    image: '/image/d12.pngpng',
+    image: '/image/d12.png',
     price: 47,
     waitTime: 9,
     address: '21 Trần Đại Nghĩa, Hai Bà Trưng, Hà Nội',

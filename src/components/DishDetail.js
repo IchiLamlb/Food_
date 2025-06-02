@@ -8,7 +8,6 @@ function DishDetail({ dishes, restaurants, user, onAddReview }) {
   const dish = dishes.find(d => d.id === parseInt(id));
   const [comments, setComments] = useState(dish ? dish.comments : []);
 
-  // Cần tìm quán dựa vào dish.restaurant hoặc dish.restaurantId, hiện đang sai là dish.id
   const restaurant = restaurants.find(r => r.name === dish?.restaurant);
 
   const addComment = (comment, rating) => {
@@ -27,6 +26,14 @@ function DishDetail({ dishes, restaurants, user, onAddReview }) {
   if (!dish) {
     return <div className="max-w-5xl mx-auto p-5 text-center text-gray-600 text-lg">Món ăn không tồn tại</div>;
   }
+
+  // Tạo URL Google Maps embed không cần API key
+  // Nếu restaurant?.address có tồn tại, encode để dùng trong URL
+  const mapAddress = restaurant?.address
+    ? encodeURIComponent(restaurant.address)
+    : '';
+
+  const mapUrl = `https://www.google.com/maps?q=${mapAddress}&output=embed`;
 
   return (
     <main className="max-w-5xl mx-auto p-5 w-full">
@@ -74,8 +81,8 @@ function DishDetail({ dishes, restaurants, user, onAddReview }) {
           </Link>
           <span>·</span>
           <span className="text-yellow-500 font-semibold">{dish.rating}⭐</span>
-          <span>·</span>
-          <span>{dish.distance}m</span>
+
+
         </p>
         <p className="text-primary italic mb-3">{dish.slogan}</p>
 
@@ -84,6 +91,23 @@ function DishDetail({ dishes, restaurants, user, onAddReview }) {
           <p className="text-sm text-gray-600 mb-4 flex items-center gap-2">
             <span>📍</span> Địa chỉ: {restaurant.address}
           </p>
+        )}
+
+        {/* Bản đồ Google Maps */}
+        {restaurant && (
+          <div className="mt-6 rounded-xl overflow-hidden shadow-lg border border-gray-200">
+            <iframe
+              title="Google Maps"
+              width="100%"
+              height="350"
+              frameBorder="0"
+              style={{ border: 0 }}
+              src={mapUrl}
+              allowFullScreen
+              loading="lazy"
+              referrerPolicy="no-referrer-when-downgrade"
+            ></iframe>
+          </div>
         )}
       </div>
 
