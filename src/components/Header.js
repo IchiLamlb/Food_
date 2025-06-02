@@ -26,7 +26,7 @@ function Header({ user, handleLogout }) {
             Quán ăn
           </Link>
           <Link
-            to="/explore-dishesL"
+            to="/explore-dishes"
             className="px-6 py-3 bg-white/20 rounded-full hover:bg-white/30 text-base font-semibold transition"
           >
             Món ăn
