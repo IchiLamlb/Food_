@@ -1,7 +1,19 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 function Header({ user, handleLogout }) {
+  const navigate = useNavigate();
+
+  const goToSuggestion = () => {
+    navigate('/');
+    setTimeout(() => {
+      const section = document.getElementById('suggestion');
+      if (section) {
+        section.scrollIntoView({ behavior: 'smooth' });
+      }
+    }, 100); // đợi một chút cho trang load
+  };
+
   return (
     <header className="bg-primary text-white shadow-lg py-4">
       <div className="max-w-6xl mx-auto px-4 flex flex-col sm:flex-row items-center justify-between gap-4">
@@ -13,12 +25,12 @@ function Header({ user, handleLogout }) {
 
         {/* Navigation */}
         <nav className="flex flex-wrap justify-center gap-3">
-          <Link
-            to="/"
+          <button
+            onClick={goToSuggestion}
             className="px-6 py-3 bg-white/20 rounded-full hover:bg-white/30 text-base font-semibold transition"
           >
             Đề xuất
-          </Link>
+          </button>
           <Link
             to="/explore_res"
             className="px-6 py-3 bg-white/20 rounded-full hover:bg-white/30 text-base font-semibold transition"
@@ -32,7 +44,6 @@ function Header({ user, handleLogout }) {
             Món ăn
           </Link>
         </nav>
-
 
         {/* User login/logout */}
         <div className="flex items-center gap-2">

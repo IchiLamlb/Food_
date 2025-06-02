@@ -84,7 +84,7 @@ function App() {
                 <section id="hero">
                   <Hero />
                 </section>
-                <section id="suggest">
+                <section id="suggestion" className="scroll-mt-20">
                   <Suggestions dishes={dishes} />
                 </section>
                 <section id="restaurants">
