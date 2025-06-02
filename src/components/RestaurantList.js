@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 
 function RestaurantList({ restaurants, searchQuery, priceFilter, waitTimeFilter, setPriceFilter, setWaitTimeFilter }) {
   // Chỉ lấy nhà hàng có id 1, 2, 3
-  const selectedRestaurants = restaurants.filter(restaurant => [1, 2, 3].includes(restaurant.id));
+  const selectedRestaurants = restaurants.filter(restaurant => [2, 4, 6].includes(restaurant.id));
 
   // Áp dụng các bộ lọc lên 3 nhà hàng đã chọn
   const filteredRestaurants = selectedRestaurants.filter(restaurant => {

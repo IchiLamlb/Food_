@@ -1,25 +1,25 @@
-// RestaurantDetail.js
 import React, { useState } from 'react';
-import { useParams, Link } from 'react-router-dom';
+import { useParams, useNavigate, Link } from 'react-router-dom';
 import CommentForm from './CommentForm';
 
 function RestaurantDetail({ restaurants, user, onAddReview }) {
   const { id } = useParams();
+  const navigate = useNavigate();
   const restaurant = restaurants.find(r => r.id === parseInt(id));
   const [comments, setComments] = useState(restaurant ? restaurant.comments : []);
 
   const addComment = (comment, rating) => {
     const newComment = {
-      id: Date.now(), // dùng timestamp làm ID tránh trùng
+      id: Date.now(),
       user: user.name,
       text: comment,
       rating,
       timestamp: new Date().toLocaleString('vi-VN'),
-      restaurantName: restaurant.name, // thêm tên quán để Reviews hiển thị
+      restaurantName: restaurant.name,
     };
 
     setComments(prev => [...prev, newComment]);
-    onAddReview(newComment); // Gửi toàn bộ comment lên Reviews
+    onAddReview(newComment);
   };
 
   if (!restaurant) {
@@ -28,7 +28,12 @@ function RestaurantDetail({ restaurants, user, onAddReview }) {
 
   return (
     <main className="max-w-5xl mx-auto p-4">
-      <Link to="/" className="text-primary hover:underline mb-5 inline-block">← Quay lại</Link>
+      <p
+        onClick={() => navigate(-1)}
+        className="text-primary hover:underline mb-5 inline-block"
+      >
+        ← Quay lại
+      </p>
 
       <div className="bg-white shadow-lg rounded-2xl overflow-hidden mb-10">
         <img
