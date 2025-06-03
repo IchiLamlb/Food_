@@ -87,8 +87,12 @@ function DishDetail({ dishes, restaurants, user, onAddReview }) {
         <p className="text-primary italic mb-3">{dish.slogan}</p>
 
         <p className="leading-relaxed text-gray-700">{dish.description || 'Món ăn thơm ngon, phù hợp cho sinh viên!'}</p>
+        <div className="flex items-center space-x-2">
+          <span>💰</span>
+          <span>Giá tiền: <strong>{dish.price}K</strong></span>
+        </div>
         {restaurant && (
-          <p className="text-sm text-gray-600 mb-4 flex items-center gap-2">
+          <p className="text-sm text-gray-700 mb-4 flex items-center gap-2">
             <span>📍</span> Địa chỉ: {restaurant.address}
           </p>
         )}
