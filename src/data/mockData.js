@@ -85,7 +85,7 @@ export const restaurants = [
   },
   {
     id: 7,
-    name: 'Quán Cơm Cô Ba',
+    name: 'Quán Cô Ba',
     description: 'Chuyên cơm tấm – sườn – bì – chả chất lượng',
     image: '/image/d7.jpg',
     price: 45,
